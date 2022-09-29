@@ -43,6 +43,10 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public function new(x:Float, y:Float, camX:Float, camY:Float)
 	{
+	  #if mobile
+addVirtualPad(LEFT_FULL, A_B);
+#end
+
 		super();
 
 		PlayState.instance.setOnLuas('inGameOver', true);

@@ -79,6 +79,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+#if android
+FlxG.android.preventDefaultKeys = [BACK];
+#end
+#if android || FlxG.android.justReleased.BACK #end
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -115,7 +119,7 @@ class TitleState extends MusicBeatState
 		var path = Paths.getPreloadPath("images/gfDanceTitle.json");
 		titleJSON = Json.parse(Assets.getText(path)); 
 		#end
-		
+SUtil.getPath() + 
 		#if (polymod && !html5)
 		if (sys.FileSystem.exists('mods/')) {
 			var folders:Array<String> = [];
@@ -168,6 +172,10 @@ class TitleState extends MusicBeatState
 		// DEBUG BULLSHIT
 
 		swagShader = new ColorSwap();
+#if mobile
+addVirtualPad(LEFT_FULL, A_B);
+#end
+
 		super.create();
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
