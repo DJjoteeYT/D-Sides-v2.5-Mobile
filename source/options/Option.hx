@@ -52,6 +52,9 @@ class Option
 
 	public function new(name:String, description:String = '', variable:String, type:String = 'bool', defaultValue:Dynamic = 'null variable value', ?options:Array<String> = null)
 	{
+#if mobile
+addVirtualPad(LEFT_FULL, A_B);
+#end
 		this.name = name;
 		this.description = description;
 		this.variable = variable;

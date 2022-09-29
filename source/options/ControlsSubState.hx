@@ -69,6 +69,9 @@ class ControlsSubState extends MusicBeatSubstate {
 	var nextAccept:Int = 5;
 
 	public function new() {
+#if mobile
+addVirtualPad(LEFT_FULL, A_B);
+#end
 		super();
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));

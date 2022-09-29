@@ -85,7 +85,9 @@ class OptionsState extends MusicBeatState
 
 		changeSelection();
 		ClientPrefs.saveSettings();
-
+#if mobile
+addVirtualPad(LEFT_FULL, A_B);
+#end
 		super.create();
 	}
 
